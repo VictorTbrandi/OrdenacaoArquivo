@@ -3,8 +3,8 @@ import java.io.RandomAccessFile;
 
 class Registro
 {
-    public final int tf=1022;
     private int codigo; //4 bytes
+    public final int tf=1022;
     private final char[] lixo = new char[tf]; //2044 bytes
 
     public Registro() {}
@@ -19,6 +19,10 @@ class Registro
     public int getCodigo()
     {
         return (codigo);
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public void gravaNoArq(RandomAccessFile arquivo)
@@ -39,10 +43,6 @@ class Registro
             for(int i=0 ; i<tf ; i++)
                 lixo[i]=arquivo.readChar();
         }catch(IOException ignored){}
-    }
-    public void exibirReg()
-    {
-        System.out.println("codigo: " + this.codigo);
     }
 
     static int length()
